@@ -22,9 +22,10 @@ func New(w http.ResponseWriter, r *http.Request) *Cookie {
 func (c *Cookie) Set(name, value string, second time.Duration) {
 
 	cookie := http.Cookie{
-		Name:  name,
-		Value: value,
-		Raw:   value,
+		Name:     name,
+		Value:    value,
+		HttpOnly: true,
+		Raw:      value,
 	}
 
 	if second == 0 {
