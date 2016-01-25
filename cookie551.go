@@ -48,3 +48,13 @@ func (c *Cookie) Get(name string) (string, error) {
 
 	return cookie.Value, nil
 }
+
+func (c *Cookie) Delete(name string) {
+
+	cookie := http.Cookie{
+		Name:   name,
+		MaxAge: -1,
+	}
+
+	http.SetCookie(c.w, &cookie)
+}
