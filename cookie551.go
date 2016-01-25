@@ -37,3 +37,13 @@ func (c *Cookie) Set(name, value string, second time.Duration) {
 	http.SetCookie(c.w, &cookie)
 
 }
+
+func (c *Cookie) Get(name string) (string, error) {
+
+	cookie, err := c.r.Cookie(name)
+	if err != nil {
+		return "", err
+	}
+
+	return cookie.Value, nil
+}
