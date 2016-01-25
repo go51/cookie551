@@ -23,7 +23,7 @@ func (c *Cookie) Set(name, value string, second time.Duration) {
 
 	cookie := http.Cookie{
 		Name:  name,
-		value: value,
+		Value: value,
 		Raw:   value,
 	}
 
