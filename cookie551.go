@@ -25,7 +25,8 @@ func (c *Cookie) Set(name, value string, second time.Duration) {
 		Name:     name,
 		Value:    value,
 		HttpOnly: true,
-		Raw:      value,
+		Path:     "/",
+		Domain:   c.r.URL.Host,
 	}
 
 	if second == 0 {
