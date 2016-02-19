@@ -53,8 +53,11 @@ func (c *Cookie) Get(name string) (string, error) {
 func (c *Cookie) Delete(name string) {
 
 	cookie := http.Cookie{
-		Name:   name,
-		MaxAge: -1,
+		Name:     name,
+		HttpOnly: true,
+		Path:     "/",
+		Domain:   c.r.URL.Host,
+		MaxAge:   -1,
 	}
 
 	http.SetCookie(c.w, &cookie)
